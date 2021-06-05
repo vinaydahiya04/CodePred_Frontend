@@ -1,0 +1,11 @@
+graph_container{
+    display: flex;
+}
+graph_div{
+    width: 100px;
+    height: 100px;
+
+    padding: 10px;
+    
+    border: 0.5 mm solid black;
+}

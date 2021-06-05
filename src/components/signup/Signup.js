@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { registerUser, loginUser } from './../../actions/authActions'
+import { connect } from "react-redux";
 
 
 class SignUp extends Component {
     state = {
         email: "",
         password: "",
-        handle: "",
+        codeforces_handle: "",
         confirmPassword: ""
     }
 
@@ -29,7 +31,7 @@ class SignUp extends Component {
     handleInputHandle = (e) => {
         this.setState({
             ...this.state,
-            handle: e.target.value
+            codeforces_handle: e.target.value
         })
     };
 
@@ -41,6 +43,11 @@ class SignUp extends Component {
     };
 
     handleLogin = () => {
+
+        this.props.loginUser({
+            email: this.state.email,
+            password: this.state.password
+        })
 
     }
 
@@ -73,7 +80,12 @@ class SignUp extends Component {
 
             // var cap = cap1 | cap2
             if (this.state.password.match(cap) && this.state.password.match(num)) {
-                alert('cool')
+                alert('user')
+                this.props.registerUser({
+                    codeforces_handle: this.state.codeforces_handle,
+                    email: this.state.email,
+                    password: this.state.password
+                })
             }
             else {
 
@@ -113,7 +125,7 @@ class SignUp extends Component {
                         <div>
                             <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
 
-                            <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.handle} onChange={(e) => this.handleInputHandle(e)}></input>
+                            <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.codeforces_handle} onChange={(e) => this.handleInputHandle(e)}></input>
 
                             <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
 
@@ -132,4 +144,18 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp
+const mapStateToProps = (state) => (
+    {
+        graph: state.graph,
+        auth: state.auth
+    }
+)
+
+export default connect(mapStateToProps,
+    {
+        registerUser,
+        loginUser
+
+    })(SignUp);
+
+

@@ -1,0 +1,6 @@
+export const GETGRAPHDATA = "GETGRAPHDATA"
+
+export const REGISTERUSER = "REGISTERUSER"
+export const LOGINUSER = "LOGINUSER"
+export const LOGOUTUSER = "LOGOUTUSER"
+
