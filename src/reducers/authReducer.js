@@ -14,14 +14,24 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 flag: 1,
-                codeforces_handle: action.payload.codeforces_handle
+                codeforces_handle: action.payload.codeforces_handle,
+                email: action.payload.email
 
             }
         case LOGINUSER:
+            console.log(action)
             return {
                 ...state,
                 flag: 1,
-                codeforces_handle: action.payload.codeforces_handle
+                codeforces_handle: action.payload.user.codeforces_handle,
+                email: action.payload.user.email
+            }
+        case LOGOUTUSER:
+            return {
+                ...state,
+                flag: 0,
+                codeforces_handle: "",
+                email: ""
             }
         default:
             return state

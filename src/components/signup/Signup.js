@@ -44,10 +44,12 @@ class SignUp extends Component {
 
     handleLogin = () => {
 
+        console.log('hello')
+
         this.props.loginUser({
             email: this.state.email,
             password: this.state.password
-        })
+        }, this.props.history)
 
     }
 

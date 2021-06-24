@@ -1,7 +1,8 @@
-graph_container{
+.graph_container{
     display: flex;
+    
 }
-graph_div{
+.graph_div{
     width: 100px;
     height: 100px;
 

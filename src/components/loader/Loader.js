@@ -1,4 +1,4 @@
-loader = () => {
+const loader = () => {
     return (
         <div >
             Code it like its Hot

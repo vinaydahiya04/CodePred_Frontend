@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { getGraphData } from './../../actions/graphAction'
 import { connect } from "react-redux";
 import { Bar, Pie } from 'react-chartjs-2'
+import Carousel from './../carousel/Carousel'
 
-import styles from './MainPage.module.css'
+// import styles from './MainPage.module.css'
 class MainPage extends Component {
 
     state = {
@@ -14,7 +15,9 @@ class MainPage extends Component {
 
     componentDidMount() {
 
-        if (this.props.auth.codeforces_handle.length > 0) {
+        console.log(this.props.auth)
+
+        if (this.props.auth.codeforces_handle.length >= 3) {
             this.props.getGraphData(this.props.auth.codeforces_handle);
 
         }
@@ -70,93 +73,122 @@ class MainPage extends Component {
         return (
             <div>
                 {this.props.auth.flag == 0 ? (
-                    <div>Please go to the profiles page and update your codeforces handle</div>
+                    <Carousel />
+
                 ) : (
                     <div>
+                        {this.props.auth.codeforces_handle}
+                        {this.props.auth.codeforces_handle.length < 3 ? <div>Go to the profiles page and input your Codeforces handle</div> :
 
-                        { this.props.graph.flag == 0 ? (<div>Invalid handle</div>) : (<div className={styles.graph_container}>
-
-
-                            <div className={styles.graph_div} >
-
-                                <Bar options={{
-                                    responsive: true,
-                                    maintainAspectRatio: false
-                                }}
-
-                                    legend={{
-                                        display: false
-                                    }}
-                                    data={{
-
-                                        labels: level_bar_labels,
-                                        datasets: [{
-                                            data: level_bar_values,
-
-                                            backgroundColor: fillColor(level_bar_labels.length),
+                            <>{
+                                this.props.graph.flag == 0 ? (<div>Invalid handle</div>) : (<div className='graph_container'>
 
 
-                                            borderColor: fillColor(level_bar_labels.length),
-                                            borderWidth: 1
-                                        }]
+                                    <div className='graph_div' >
+
+                                        <Bar options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            width: "100px",
+                                            plugins: {
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                        }}
+
+                                            legend={{
+                                                display: false
+                                            }}
+                                            data={{
+
+                                                labels: level_bar_labels,
+                                                datasets: [{
+                                                    data: level_bar_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
 
 
-
-                                    }} />
-                            </div>
-
-
-                            <div className={styles.graph_div}>
-
-                                <Pie options={{
-                                    responsive: true,
-                                    maintainAspectRatio: false
-                                }}
-                                    data={{
-                                        labels: tags_pie_labels,
-                                        datasets: [{
-                                            data: tags_pie_values,
-
-                                            backgroundColor: fillColor(level_bar_labels.length),
-
-
-                                            borderColor: fillColor(level_bar_labels.length),
-                                            borderWidth: 1
-                                        }]
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
 
 
 
-                                    }}
-                                />
+                                            }} />
+                                    </div>
 
 
-                            </div>
+                                    <div className='graph_div'>
 
-                            <div className={styles.graph_div}>
-                                <Pie options={{
-                                    responsive: true,
-                                    maintainAspectRatio: false
-                                }}
-                                    data={{
-                                        labels: accuracy_pie_labels,
-                                        datasets: [{
-                                            data: accuracy_pie_values,
+                                        <Pie options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                            legend: {
+                                                display: false
+                                            }
+                                        }}
 
-                                            backgroundColor: fillColor(level_bar_labels.length),
+                                            legend={{
+                                                display: false
+                                            }}
+                                            data={{
+                                                labels: tags_pie_labels,
+                                                datasets: [{
+                                                    data: tags_pie_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
 
 
-                                            borderColor: fillColor(level_bar_labels.length),
-                                            borderWidth: 1
-                                        }]
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
 
 
 
-                                    }}
-                                />
-                            </div>
+                                            }}
+                                        />
 
 
-                        </div>)}
+                                    </div>
+
+                                    <div className='graph_div'>
+                                        <Pie options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                        }}
+                                            data={{
+                                                labels: accuracy_pie_labels,
+                                                datasets: [{
+                                                    data: accuracy_pie_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
+
+
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
+
+
+
+                                            }}
+                                        />
+                                    </div>
+
+
+                                </div>)
+                            }</>
+                        }
 
                     </div>
                 )

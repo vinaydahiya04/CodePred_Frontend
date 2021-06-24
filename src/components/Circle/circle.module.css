@@ -1,0 +1,63 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aspin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+:root {
+  --Teal: #018786;
+  --Cyan: #00BFA5;
+  --Blue: #0336FF;
+  --Blue2: #3700B3;
+  --Orange: #EE6002;
+  --Green: #00695C;
+  --Purple: #6200EE;
+  --Fuchsia: #B00020;
+  --Magenta: #FF0266;
+}
+.parent {
+  /* border: 2mm solid black; */
+  margin: 10px 10px;
+  
+
+  
+}
+
+.spin1 {
+  width: 150px;
+  height: 150px;
+  border: 10px solid var(--Magenta);
+  border-radius: 50%;
+  border-left-color: #DDD;
+  animation-name: spin;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.spin11 {
+
+  
+  position: relative;
+  bottom: 110px;
+  width: 130px;
+  margin: 0px 25px;
+  /* border: 0px solid var(--Cyan);
+  font-size: 18px;
+  animation-name: aspin;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; */
+}
