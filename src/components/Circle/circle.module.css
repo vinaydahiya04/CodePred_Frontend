@@ -42,7 +42,7 @@
   border-radius: 50%;
   border-left-color: #DDD;
   animation-name: spin;
-  animation-duration: 3.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -54,6 +54,8 @@
   bottom: 110px;
   width: 130px;
   margin: 0px 25px;
+  display: flex;
+  justify-content: center;
   /* border: 0px solid var(--Cyan);
   font-size: 18px;
   animation-name: aspin;

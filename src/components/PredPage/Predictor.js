@@ -7,12 +7,12 @@ import Circle from './../Circle/circle'
 class Predictor extends Component {
 
     componentDidMount() {
-        console.log(this.props.codeforces_handle)
-        if (this.props.pred.flag == -1) {
 
-            this.props.getPred(this.props.auth.codeforces_handle, this.props.history);
 
-        }
+
+        this.props.getPred(this.props.auth.codeforces_handle, this.props.history);
+
+
     }
 
 
@@ -22,7 +22,7 @@ class Predictor extends Component {
 
 
     provider = () => {
-        const items = []
+        var items = []
 
         switch (this.props.pred.flag) {
             case -1:
@@ -36,17 +36,22 @@ class Predictor extends Component {
             case 4:
                 for (let i = 0; i < this.props.pred.data.length; i++) {
                     for (let j = 0; j < this.props.pred.data[i].length & j < 1; j++) {
-                        items.push(<Circle data={this.props.pred.data[i][j]} />)
+                        items.push(this.props.pred.data[i][j])
                     }
                 }
+
+                items = [...new Set(items)]
+                var item = []
+
+                for (let i = 0; i < items.length; i++)item.push(<Circle data={items[i]} />)
                 return <div>
 
 
-                    Well my recommendation is that You Should try solving the following questions. If the problem seem too hard dont give up
+                    Well my recommendation is that You Should try solving the following questions. If the problem seems too hard dont give up
                     easily, try solving and then later read the editorial to gain some insight into solving such questions.
 
                     <div className={styles.holder}>
-                        {items}
+                        {item}
                     </div>
 
 

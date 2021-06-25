@@ -25,11 +25,16 @@ class MainPage extends Component {
 
     render() {
         console.log(this.props.graph)
-
+        var pallete = ["#FFF1C9", "#F7B7A3", "#EA5F89", "#9B3192",
+            "#57167E", "#2B0B3F", "#FFEC21", "#378AFF", "#FFA32F", "#F54F52",
+            "#93F03B", "#9552EA", "#f95d6a", "#3C9D4E", "#7031AC", "#C94D6D",
+            "#E4BF58", "#4174C9"
+        ]
         var dynamicColors = function () {
             var r = Math.floor(Math.random() * 255);
             var g = Math.floor(Math.random() * 255);
             var b = Math.floor(Math.random() * 255);
+            return pallete[1];
             return "rgb(" + r + "," + g + "," + b + ")";
         }
 
@@ -37,7 +42,7 @@ class MainPage extends Component {
             var tr = []
 
             for (var i = 0; i < num; i++) {
-                tr.push(dynamicColors())
+                tr.push(pallete[i])
             }
 
             return tr;
