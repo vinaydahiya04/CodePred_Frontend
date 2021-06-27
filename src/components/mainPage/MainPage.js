@@ -3,6 +3,7 @@ import { getGraphData } from './../../actions/graphAction'
 import { connect } from "react-redux";
 import { Bar, Pie } from 'react-chartjs-2'
 import Carousel from './../carousel/Carousel'
+import { Grid } from '@material-ui/core'
 
 // import styles from './MainPage.module.css'
 class MainPage extends Component {
@@ -82,11 +83,11 @@ class MainPage extends Component {
 
                 ) : (
                     <div>
-                        {this.props.auth.codeforces_handle}
+                        {/* {this.props.auth.codeforces_handle} */}
                         {this.props.auth.codeforces_handle.length < 3 ? <div>Go to the profiles page and input your Codeforces handle</div> :
 
-                            <>{
-                                this.props.graph.flag == 0 ? (<div>Invalid handle</div>) : (<div className='graph_container'>
+                            <>
+                                {/* this.props.graph.flag == 0 ? (<div>Invalid handle</div>) : (<div className='graph_container'>
 
 
                                     <div className='graph_div' >
@@ -191,14 +192,140 @@ class MainPage extends Component {
                                     </div>
 
 
-                                </div>)
-                            }</>
+                                </div>) */}
+
+                                {this.props.graph.flag == 0 ? (<div>Invalid handle</div>) : (
+                                    <Grid container justify="space-around">
+
+                                        <Grid item xs={12} md={6} lg={6}><Pie options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                title: {
+                                                    display: true,
+                                                    text: 'Questions Tag Solved',
+                                                    font: {
+                                                        size: 18
+                                                    }
+                                                },
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                            legend: {
+                                                display: false
+                                            }
+                                        }}
+                                            height="225px"
+
+                                            legend={{
+                                                display: false
+                                            }}
+                                            data={{
+                                                labels: tags_pie_labels,
+                                                datasets: [{
+                                                    data: tags_pie_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
+
+
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
+
+
+
+                                            }}
+                                        /></Grid>
+                                        <Grid item xs={12} md={6} lg={6}><Pie options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                title: {
+                                                    display: true,
+                                                    text: 'Verdicts',
+                                                    font: {
+                                                        size: 18
+                                                    }
+                                                },
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                        }}
+                                            height="225px"
+                                            data={{
+                                                labels: accuracy_pie_labels,
+                                                datasets: [{
+                                                    data: accuracy_pie_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
+
+
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
+
+
+
+                                            }}
+                                        /></Grid>
+
+                                        <Grid item xs={12} md={12} lg={12}><Bar options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+
+                                            plugins: {
+                                                title: {
+                                                    display: true,
+                                                    text: 'Problem Ratings',
+                                                    font: {
+                                                        size: 18
+                                                    }
+
+                                                },
+                                                legend: {
+                                                    display: false,
+                                                }
+                                            },
+                                        }}
+
+
+                                            height="225px"
+
+                                            legend={{
+                                                display: false
+                                            }}
+                                            data={{
+
+                                                labels: level_bar_labels,
+                                                datasets: [{
+                                                    data: level_bar_values,
+
+                                                    backgroundColor: fillColor(level_bar_labels.length),
+
+
+                                                    borderColor: fillColor(level_bar_labels.length),
+                                                    borderWidth: 1
+                                                }]
+
+
+
+                                            }} /></Grid>
+
+                                    </Grid>
+                                )}
+
+
+                            </>
+
+
                         }
 
                     </div>
                 )
                 }
-            </div>
+            </div >
         )
     }
 

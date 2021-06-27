@@ -10,3 +10,7 @@
     
     border: 0.5 mm solid black;
 }
+
+body{
+    height: 100vh;
+}
