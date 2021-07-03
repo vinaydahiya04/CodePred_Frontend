@@ -10,25 +10,26 @@ const Header = (props) => {
                 CodePred
             </div>
             <div className={styles.info_box}>
+                <div className={styles.random_div}></div>
                 {props.auth.flag ?
-                    <div>
-                        <Link to='/'><div className={styles.options_div}>Home</div></Link>
+                    <div className={styles.horizontal_box}>
+                        <div className={styles.options_div}><Link to='/'>Home</Link></div>
                         {/* <Link to='/'><div className={styles.options_div}>About</div></Link> */}
-                        <Link to='/predict'><div className={styles.options_div}>Predictor</div></Link>
-                        <Link to='/profile'><div className={styles.options_div}>Profile</div></Link>
+                        <div className={styles.options_div}><Link to='/predict'>Predictor</Link></div>
+                        <div className={styles.options_div}><Link to='/profile'>Profile</Link></div>
                         {/* <Link to='/logout'><div className={styles.options_div}>Logout</div></Link> */}
 
                     </div> :
-                    <div>
-                        <Link to='/'><div className={styles.options_div}>Home</div></Link>
-                        <Link to='/'><div className={styles.options_div}>About</div></Link>
-                        <Link to='/login'><div className={styles.options_div}>Login</div></Link>
+                    <div className={styles.horizontal_box}>
+                        <div className={styles.options_div}><Link to='/'>Home</Link></div>
+                        <div className={styles.options_div}><Link to='/'>About</Link></div>
+                        <div className={styles.options_div}><Link to='/login'>Login</Link></div>
 
                     </div>}
 
 
             </div>
-        </div>
+        </div >
     )
 }
 

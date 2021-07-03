@@ -1,16 +1,21 @@
+import styles from './predictor.module.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPred } from './../../actions/predActions'
-import styles from './predictor.module.css'
+
 import Circle from './../Circle/circle'
 
 class Predictor extends Component {
+
+
 
     componentDidMount() {
 
 
 
         this.props.getPred(this.props.auth.codeforces_handle, this.props.history);
+
+
 
 
     }

@@ -2,13 +2,9 @@ import React, { Suspense } from 'react';
 import Loader from './components/loader/Loader'
 import { Route, Link, Router, BrowserRouter, Switch } from 'react-router-dom'
 import Header from './components/Header';
-import privateRoute from './components/PrivateRoute/privateRoute';
+import PrivateRoute from './components/PrivateRoute/privateRoute';
 
 
-// chart-js
-// type of submissions pie 
-// level of questions Bar
-// tags of questions pie
 
 const App = (props) => {
 
@@ -42,9 +38,9 @@ const App = (props) => {
                                 <Route path='/loader' exact component={Loader} />
                                 <Route path='/' exact component={MainPage} />
                                 <Route path='/login' exact component={SignUp} />
-                                <Route path='/profile' exact component={PasswordReset} />
-                                <Route path='/predict' exact component={Predict} />
-                                <Route component={Loader} />
+                                <PrivateRoute path='/profile' exact component={PasswordReset} />
+                                <PrivateRoute path='/predict' exact component={Predict} />
+
                             </Switch>
 
 

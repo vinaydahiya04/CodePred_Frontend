@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
 import styles from './circle.module.css'
+import React, { Component } from 'react'
+
 
 class Circle extends Component {
     render() {

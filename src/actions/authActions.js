@@ -119,6 +119,9 @@ export const resetPassword = (user, history) => (dispatch) => {
         .then(res => {
             if (res.flag == 1) {
                 alert('Password Change Succesful')
+                dispatch({
+                    type: LOGOUTUSER
+                })
                 history.push('/')
             }
             else {
