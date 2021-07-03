@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getGraphData } from './../../actions/graphAction'
 import { connect } from "react-redux";
 import { Bar, Pie } from 'react-chartjs-2'
-import Carousel from './../carousel/Carousel'
+import Carousel from '../Carousel/Carousel'
 import { Grid } from '@material-ui/core'
 
 // import styles from './MainPage.module.css'
