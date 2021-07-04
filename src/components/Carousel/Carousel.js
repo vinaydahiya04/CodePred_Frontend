@@ -13,17 +13,20 @@ const carousel = () => {
             <Carousel autoPlay="true" infiniteLoop="true">
                 <div>
                     <img src={pic2} alt="tourist daddy" />
-                    <p className="legend">addy 1</p>
+                    <p className={styles.legend}>addy 1</p>
                 </div>
                 <div>
                     <img src={pic2} alt="tourist daddy" />
-                    <p className="legend">addy 2</p>
+                    <p className={styles.legend}>addy 2</p>
                 </div>
                 <div>
                     <img src={pic2} alt="tourist daddy" />
-                    <p className="legend">addy 3</p>
+                    <p className={styles.legend}>addy 3</p>
                 </div>
             </Carousel>
+
+            <div className={styles.message_div}>Login to your account and then head to Predictor
+                to get reccomendations for questions to solve to improve your rating.</div>
         </div >
 
     )

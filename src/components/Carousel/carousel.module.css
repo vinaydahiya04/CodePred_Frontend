@@ -1,3 +1,12 @@
 .carousel_cover{
     height: 250px;
 }
+
+.legend{
+    display: none;
+}
+.message_div{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}

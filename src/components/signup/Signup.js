@@ -4,6 +4,8 @@ import Tab from 'react-bootstrap/Tab'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { registerUser, loginUser } from './../../actions/authActions'
 import { connect } from "react-redux";
+import Button from 'react-bootstrap/Button'
+import styles from './signup.module.css'
 
 
 class SignUp extends Component {
@@ -111,34 +113,42 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.parent_div}>
                 {this.state.password}
-                <Tabs defaultActiveKey="login" id="uncontrolled-tab-example">
-                    <Tab eventKey="login" title="Login">
-                        <div>
-                            <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
-                            <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
+                <div className={styles.child_div}>
+                    <Tabs defaultActiveKey="login" id="uncontrolled-tab-example" className={styles.tabs}>
+                        <Tab eventKey="login" title="Login" className={styles.login_tab}>
+                            {/* <div className="mt-3"> */}
+                            <div className={styles.form}>
+                                <form style={{ justifyContent: "center" }}>
+                                    <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
+                                    <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
 
-                            <button type="submit" onClick={this.handleLogin} ></button>
-                        </div>
-                    </Tab>
+                                    <Button type="submit" onClick={this.handleLogin} className={styles.but}>Submit</Button>
+                                </form>
+                            </div>
+                            {/* </div> */}
+                        </Tab>
 
-                    <Tab eventKey="signup" title="Signup">
-                        <div>
-                            <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
+                        <Tab eventKey="signup" title="Signup">
+                            <div className={styles.form}>
+                                <form style={{ justifyContent: "center" }}>
+                                    <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
 
-                            <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.codeforces_handle} onChange={(e) => this.handleInputHandle(e)}></input>
+                                    <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.codeforces_handle} onChange={(e) => this.handleInputHandle(e)}></input>
 
-                            <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
+                                    <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
 
-                            <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
+                                    <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
 
-                            <button type="submit" onClick={this.handleSignup} ></button>
+                                    <Button type="submit" onClick={this.handleSignup} className={styles.but} >Submit</Button>
+                                </form>
+                            </div>
+                        </Tab>
 
-                        </div>
-                    </Tab>
+                    </Tabs>
 
-                </Tabs>
+                </div>
 
             </div>
 

@@ -3,7 +3,8 @@ import { getGraphData } from './../../actions/graphAction'
 import { connect } from "react-redux";
 import { Bar, Pie } from 'react-chartjs-2'
 import Carousel from '../Carousel/Carousel'
-import { Grid } from '@material-ui/core'
+import { Grid, StylesProvider } from '@material-ui/core'
+import ParticleMaker from '../ParticlePage/particlePage';
 
 // import styles from './MainPage.module.css'
 class MainPage extends Component {
@@ -78,11 +79,15 @@ class MainPage extends Component {
         }
         return (
             <div>
-                {this.props.auth.flag == 0 ? (
-                    <Carousel />
 
+                {this.props.auth.flag == 0 ? (
+                    <div className='goup'>
+                        <ParticleMaker></ParticleMaker>
+                        <Carousel />
+                    </div>
                 ) : (
                     <div>
+
                         {/* {this.props.auth.codeforces_handle} */}
                         {this.props.auth.codeforces_handle.length < 3 ? <div>Go to the profiles page and input your Codeforces handle</div> :
 
