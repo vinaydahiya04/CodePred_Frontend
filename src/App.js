@@ -10,7 +10,7 @@ const App = (props) => {
 
 
     // const Carousel = React.lazy(() => import('./components/Carousel/Carousel'))
-    // const AboutPage = React.lazy(() => import('./components/about_site/About'))
+    const AboutPage = React.lazy(() => import('./components/about_site/About'))
     const SignUp = React.lazy(() => import('./components/signup/Signup'))
     const MainPage = React.lazy(() => import('./components/mainPage/MainPage'))
     const PasswordReset = React.lazy(() => import('./components/Password_Reset/PasswordReset'))
@@ -38,6 +38,7 @@ const App = (props) => {
                                 <Route path='/loader' exact component={Loader} />
                                 <Route path='/' exact component={MainPage} />
                                 <Route path='/login' exact component={SignUp} />
+                                <Route path='/about' exact component={AboutPage} />
                                 <PrivateRoute path='/profile' exact component={PasswordReset} />
                                 <PrivateRoute path='/predict' exact component={Predict} />
 

@@ -46,7 +46,11 @@ class SignUp extends Component {
 
     handleLogin = () => {
 
-        console.log('hello')
+        // console.log('hello')
+        // console.log({
+        //     email: this.state.email,
+        //     password: this.state.password
+        // })
 
         this.props.loginUser({
             email: this.state.email,
@@ -114,18 +118,19 @@ class SignUp extends Component {
     render() {
         return (
             <div className={styles.parent_div}>
-                {this.state.password}
+                <h1 className={styles.welcome_heading}>Hi there! </h1>
+                <br></br><br></br>
                 <div className={styles.child_div}>
                     <Tabs defaultActiveKey="login" id="uncontrolled-tab-example" className={styles.tabs}>
-                        <Tab eventKey="login" title="Login" className={styles.login_tab}>
+                        <Tab eventKey="login" title="Login" >
                             {/* <div className="mt-3"> */}
                             <div className={styles.form}>
-                                <form style={{ justifyContent: "center" }}>
-                                    <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
-                                    <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
+                                {/* <form style={{ justifyContent: "center" }}> */}
+                                <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
+                                <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
 
-                                    <Button type="submit" onClick={this.handleLogin} className={styles.but}>Submit</Button>
-                                </form>
+                                <button onClick={this.handleLogin} className={styles.but}>Submit</button>
+                                {/* </form> */}
                             </div>
                             {/* </div> */}
                         </Tab>
@@ -141,7 +146,7 @@ class SignUp extends Component {
 
                                     <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
 
-                                    <Button type="submit" onClick={this.handleSignup} className={styles.but} >Submit</Button>
+                                    <button onClick={this.handleSignup} className={styles.but} >Submit</button>
                                 </form>
                             </div>
                         </Tab>

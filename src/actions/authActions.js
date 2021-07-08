@@ -64,6 +64,9 @@ export const loginUser = (user, history) => (dispatch) => {
         body: raw
     }
 
+    console.log(requestOptions);
+    console.log(raw)
+
     var api_link = data.url + "user/login"
 
     fetch(api_link, requestOptions)
@@ -78,9 +81,10 @@ export const loginUser = (user, history) => (dispatch) => {
                 history.push("/");
             }
             else {
+
                 alert(res.message)
             }
-        }).catch(err => { alert(err) });
+        }).catch(err => { console.log(err) });
 
 
 }

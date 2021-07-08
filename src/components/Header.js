@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
+import logo from './Untitled2.png';
 
 const Header = (props) => {
     return (
         <div className={styles.header_main}>
             <div className={styles.logo_box}>
-                CodePred
+                <img src={logo} alt='hello'></img>
             </div>
             <div className={styles.info_box}>
                 <div className={styles.random_div}></div>
@@ -22,7 +23,7 @@ const Header = (props) => {
                     </div> :
                     <div className={styles.horizontal_box}>
                         <div className={styles.options_div}><Link to='/'>Home</Link></div>
-                        <div className={styles.options_div}><Link to='/'>About</Link></div>
+                        <div className={styles.options_div}><Link to='/about'>About</Link></div>
                         <div className={styles.options_div}><Link to='/login'>Login</Link></div>
 
                     </div>}
