@@ -9,7 +9,7 @@
 }
 
 .header_main1{
-    background-color: #EA5F89;
+    background-color: #FF2f3042;
     
     padding: 10px 10px;
     display: flex;
@@ -27,7 +27,7 @@
 }
 
 .logo_box1{
-    background-color: #EA5F89;
+    
     flex: 1.75;
     display: flex;
     flex-direction: row;

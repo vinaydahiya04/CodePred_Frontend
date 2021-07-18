@@ -124,7 +124,7 @@ class PasswordReset extends Component {
                     Handle: {this.props.auth.codeforces_handle}
                 </div>
                 <div className='buttons'>
-                    <Button onClick={() =>
+                    <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={() =>
                         this.props.logoutUser(
                             this.props.history
                         )}>Logout</Button>
@@ -132,6 +132,7 @@ class PasswordReset extends Component {
 
                 <div className='buttons'>
                     <Button
+                        style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }}
 
                         onClick={handleShow}
                     >resetPassword</Button>
