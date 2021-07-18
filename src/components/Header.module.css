@@ -1,5 +1,15 @@
 .header_main{
-    background-color: aqua;
+    background-color: #57167E;
+    
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px;
+    
+}
+
+.header_main1{
+    background-color: #EA5F89;
     
     padding: 10px 10px;
     display: flex;
@@ -8,7 +18,16 @@
 }
 
 .logo_box{
-    background-color: aqua;
+    background-color: #57167E;
+    flex: 1.75;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: xx-large;
+}
+
+.logo_box1{
+    background-color: #EA5F89;
     flex: 1.75;
     display: flex;
     flex-direction: row;
@@ -30,12 +49,18 @@
     font-size: large;
     margin-left:10%;
     font-size: 20px;
+    color: white;
     
+    
+}
+
+.opt_div{
+    color: white;
 }
 
 .options_div:hover{
     font-size: 22px;
-    color: black;
+    color: yellow;
 }
 
 .random_div{
@@ -48,5 +73,6 @@
     flex-direction:row;
     justify-content:center;
     height: 30px;
+    color: white;
     
 }

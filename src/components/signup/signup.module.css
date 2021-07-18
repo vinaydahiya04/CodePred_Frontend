@@ -22,6 +22,10 @@
     flex-direction: column;
 }
 
+.hide{
+  display: none;
+}
+
 .child_div{
   max-width: max-content;
   margin: auto;

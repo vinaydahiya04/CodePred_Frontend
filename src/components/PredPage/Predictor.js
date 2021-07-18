@@ -4,10 +4,13 @@ import { connect } from 'react-redux'
 import { getPred } from './../../actions/predActions'
 
 import Circle from './../Circle/circle'
+import Loader from './../loader/Loader'
 
 class Predictor extends Component {
 
-
+    state = {
+        loader: true
+    }
 
     componentDidMount() {
 
@@ -15,7 +18,9 @@ class Predictor extends Component {
 
         this.props.getPred(this.props.auth.codeforces_handle, this.props.history);
 
-
+        this.setState({
+            loader: false
+        })
 
 
     }
@@ -82,8 +87,13 @@ class Predictor extends Component {
         console.log(this.props.pred)
         return (
             <div>
-                {this.provider()}
+                {this.state.loader ? <Loader /> : <></>}
+                <div className={this.state.loader ? styles.hide : styles.unh}>
+
+                    {this.provider()}
+                </div>
             </div>
+
         )
     }
 }

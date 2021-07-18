@@ -6,6 +6,7 @@ import { registerUser, loginUser } from './../../actions/authActions'
 import { connect } from "react-redux";
 import Button from 'react-bootstrap/Button'
 import styles from './signup.module.css'
+import Loader from './../loader/Loader'
 
 
 class SignUp extends Component {
@@ -13,8 +14,11 @@ class SignUp extends Component {
         email: "",
         password: "",
         codeforces_handle: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        loader: false
     }
+
+
 
     handleInputEmail = (e) => {
         this.setState({
@@ -52,6 +56,10 @@ class SignUp extends Component {
         //     password: this.state.password
         // })
 
+        this.setState({
+            loader: true
+        })
+
         this.props.loginUser({
             email: this.state.email,
             password: this.state.password
@@ -63,6 +71,7 @@ class SignUp extends Component {
 
         if (this.state.password != this.state.confirmPassword) {
             alert('Passwords dont match , please re enter')
+
             this.setState({
                 ...this.state,
                 password: "",
@@ -89,6 +98,7 @@ class SignUp extends Component {
             // var cap = cap1 | cap2
             if (this.state.password.match(cap) && this.state.password.match(num)) {
                 alert('user')
+
                 this.props.registerUser({
                     codeforces_handle: this.state.codeforces_handle,
                     email: this.state.email,
@@ -117,42 +127,49 @@ class SignUp extends Component {
 
     render() {
         return (
+
             <div className={styles.parent_div}>
-                <h1 className={styles.welcome_heading}>Hi there! </h1>
-                <br></br><br></br>
-                <div className={styles.child_div}>
-                    <Tabs defaultActiveKey="login" id="uncontrolled-tab-example" className={styles.tabs}>
-                        <Tab eventKey="login" title="Login" >
-                            {/* <div className="mt-3"> */}
-                            <div className={styles.form}>
-                                {/* <form style={{ justifyContent: "center" }}> */}
-                                <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
-                                <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
+                <div className={this.state.loader ? styles.unhide : styles.hide}>
+                    {this.state.loader ? <Loader /> : <></>}
+                </div>
 
-                                <button onClick={this.handleLogin} className={styles.but}>Submit</button>
-                                {/* </form> */}
-                            </div>
-                            {/* </div> */}
-                        </Tab>
+                <div className={this.state.loader ? styles.hide : styles.unhide}>
+                    <h1 className={styles.welcome_heading}>Hi there! </h1>
+                    <br></br><br></br>
+                    <div className={styles.child_div}>
+                        <Tabs defaultActiveKey="login" id="uncontrolled-tab-example" className={styles.tabs}>
+                            <Tab eventKey="login" title="Login" >
+                                {/* <div className="mt-3"> */}
+                                <div className={styles.form}>
+                                    {/* <form style={{ justifyContent: "center" }}> */}
+                                    <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
+                                    <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
 
-                        <Tab eventKey="signup" title="Signup">
-                            <div className={styles.form}>
-                                <form style={{ justifyContent: "center" }}>
-                                    <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
+                                    <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleLogin} className={styles.but}>Submit</Button>
+                                    {/* </form> */}
+                                </div>
+                                {/* </div> */}
+                            </Tab>
 
-                                    <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.codeforces_handle} onChange={(e) => this.handleInputHandle(e)}></input>
+                            <Tab eventKey="signup" title="Signup">
+                                <div className={styles.form}>
+                                    <form style={{ justifyContent: "center" }}>
+                                        <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
 
-                                    <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
+                                        <input type="text" placeholder="CodeForces Handle" id="handle_box" value={this.state.codeforces_handle} onChange={(e) => this.handleInputHandle(e)}></input>
 
-                                    <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
+                                        <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)}></input>
 
-                                    <button onClick={this.handleSignup} className={styles.but} >Submit</button>
-                                </form>
-                            </div>
-                        </Tab>
+                                        <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
 
-                    </Tabs>
+                                        <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleSignup} className={styles.but} >Submit</Button>
+                                    </form>
+                                </div>
+                            </Tab>
 
+                        </Tabs>
+
+                    </div>
                 </div>
 
             </div>
