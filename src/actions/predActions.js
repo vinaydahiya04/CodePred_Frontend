@@ -6,7 +6,7 @@ export const getPred = (handle, history) => (dispatch) => {
     var myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json')
 
-    console.log(handle)
+
 
 
     var requestOptions = {

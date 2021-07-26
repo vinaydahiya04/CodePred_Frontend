@@ -100,4 +100,14 @@
     font-size: 10px;
     
 }
+
+.options_div{
+    flex:1;
+    font-size: medium;
+    margin-left:0%;
+    font-size: 15px;
+    color: white;
+    
+    
+}
 }
