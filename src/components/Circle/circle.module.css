@@ -18,21 +18,19 @@
 
 :root {
   --Teal: #018786;
-  --Cyan: #00BFA5;
-  --Blue: #0336FF;
-  --Blue2: #3700B3;
-  --Orange: #EE6002;
-  --Green: #00695C;
-  --Purple: #6200EE;
-  --Fuchsia: #B00020;
-  --Magenta: #FF0266;
+  --Cyan: #00bfa5;
+  --Blue: #0336ff;
+  --Blue2: #3700b3;
+  --Orange: #ee6002;
+  --Green: #00695c;
+  --Purple: #6200ee;
+  --Fuchsia: #b00020;
+  --Magenta: #ff0266;
 }
 .parent {
   /* border: 2mm solid black; */
   margin: 10px 10px;
-  
-
-  
+  position: relative;
 }
 
 .spin1 {
@@ -40,7 +38,7 @@
   height: 150px;
   border: 10px solid var(--Magenta);
   border-radius: 50%;
-  border-left-color: #DDD;
+  border-left-color: #ddd;
   animation-name: spin;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -48,18 +46,15 @@
 }
 
 .spin11 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
 
-  
-  position: relative;
-  bottom: 110px;
-  width: 130px;
-  margin: 0px 25px;
-  display: flex;
-  justify-content: center;
   /* border: 0px solid var(--Cyan);
   font-size: 18px;
   animation-name: aspin;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear; */
+  animation-timing-function: linear;*/
 }
