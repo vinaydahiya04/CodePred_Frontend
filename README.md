@@ -4,5 +4,5 @@ https://code-pred.netlify.app/profile
 # Backend Link:
 "https://codepred.herokuapp.com/"
 
-# To check the recommended ratings for each user:
-"https://codepred.herokuapp.com/api/prediction/data?handle=" + {Your CodeForces Handle}
+# To check all the recommended questions for each user:
+"https://codepred.herokuapp.com/api/prediction/info?handle=" + {Your CodeForces Handle}
