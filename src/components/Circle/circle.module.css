@@ -43,6 +43,7 @@
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  margin:"10px 10px";
 }
 
 .spin11 {
@@ -50,6 +51,7 @@
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
+  margin:"10px 10px";
 
   /* border: 0px solid var(--Cyan);
   font-size: 18px;
