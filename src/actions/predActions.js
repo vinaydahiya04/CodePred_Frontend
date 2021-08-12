@@ -17,10 +17,10 @@ export const getPred = (handle, history) => (dispatch) => {
     }
 
     let api_link = config.url + "prediction/info?handle=" + handle
-    console.log(api_link)
+    
 
     fetch(api_link).then(res => res.json()).then(res => {
-        console.log(res)
+        
         dispatch(
             {
                 type: GETPRED,

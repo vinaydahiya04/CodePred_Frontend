@@ -10,7 +10,7 @@ export const getGraphData = (user) => (dispatch) => {
 
     var api_link = config.status + user + "&from=1&count=3000"
 
-    console.log('hello')
+    
     var requestOptions = {
         method: "GET",
         headers: myHeaders,

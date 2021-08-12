@@ -97,13 +97,13 @@ class SignUp extends Component {
 
             // var cap = cap1 | cap2
             if (this.state.password.match(cap) && this.state.password.match(num)) {
-                alert('user')
+                
 
                 this.props.registerUser({
                     codeforces_handle: this.state.codeforces_handle,
                     email: this.state.email,
                     password: this.state.password
-                })
+                },this.props.history)
             }
             else {
 

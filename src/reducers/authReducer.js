@@ -10,7 +10,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case REGISTERUSER:
-            console.log('bruhh')
+            
             return {
                 ...state,
                 flag: 1,
@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
 
             }
         case LOGINUSER:
-            console.log(action)
+                        
             return {
                 ...state,
                 flag: 1,

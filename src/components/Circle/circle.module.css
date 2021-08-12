@@ -1,21 +1,10 @@
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+a:visited {
+  color: black;
 }
 
-@keyframes aspin {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+a:link {
+  color: black;
 }
-
 :root {
   --Teal: #018786;
   --Cyan: #00bfa5;
@@ -59,4 +48,23 @@
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;*/
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aspin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

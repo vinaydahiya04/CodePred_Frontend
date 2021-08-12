@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from './rp.module.css'
+import img from './img.jpg'
 
 class PasswordReset extends Component {
 
@@ -118,26 +119,36 @@ class PasswordReset extends Component {
 
 
         return (
-            <div>
-                <div className='profile_info'>
+            <div className={styles.main_div}>
+                <div className={styles.pic_div}>
+                    <img src={img} alt='hello'></img>
+                </div>
+                <div className={styles.button_div}>
+                <div className={styles.profile_info}>
                     Email: <b>{this.props.auth.email}</b>
-                    <br></br>
+                    <br></br><br></br>
                     Handle: <b>{this.props.auth.codeforces_handle}</b>
                 </div>
-                <div className='buttons'>
+                <div className={styles.buttons}>
                     <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={() =>
                         this.props.logoutUser(
                             this.props.history
                         )}>Logout</Button>
                 </div>
 
-                <div className='buttons'>
+                <div className={styles.buttons}>
                     <Button
                         style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }}
 
                         onClick={handleShow}
                     >resetPassword</Button>
                 </div>
+
+                
+
+                </div>
+
+                
 
                 <Modal show={this.state.show} onHide={handleClose} animation={false}>
                     <Modal.Header closeButton>

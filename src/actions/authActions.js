@@ -2,9 +2,9 @@ import { LOGINUSER, LOGOUTUSER, REGISTERUSER, FORGOTPASSWORD } from './types'
 
 import data from './../config'
 
-export const registerUser = (user) => (dispatch) => {
+export const registerUser = (user,history) => (dispatch) => {
 
-    alert('bruhh')
+    
 
     var myHeaders = new Headers()
 
@@ -26,18 +26,20 @@ export const registerUser = (user) => (dispatch) => {
     }
 
     var api_link = data.url + "user/register"
-    alert(api_link)
+    
 
     fetch(api_link, requestOptions)
         .then(response => response.json())
         .then((res) => {
             if (res.flag == 1) {
-                alert(res.message)
+                
                 dispatch({
                     type: REGISTERUSER,
                     payload: res.data
 
                 })
+
+                history.push("/");
             }
             else {
                 alert(res.message)
@@ -64,8 +66,7 @@ export const loginUser = (user, history) => (dispatch) => {
         body: raw
     }
 
-    console.log(requestOptions);
-    console.log(raw)
+    
 
     var api_link = data.url + "user/login"
 
@@ -81,8 +82,9 @@ export const loginUser = (user, history) => (dispatch) => {
                 history.push("/");
             }
             else {
-
                 alert(res.message)
+                history.push("/");
+                
             }
         }).catch(err => { console.log(err) });
 
@@ -90,7 +92,7 @@ export const loginUser = (user, history) => (dispatch) => {
 }
 
 export const logoutUser = (history) => (dispatch) => {
-    console.log('hello')
+    
     dispatch({
         type: LOGOUTUSER
     })

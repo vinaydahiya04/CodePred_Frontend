@@ -9,7 +9,9 @@ class Circle extends Component {
         <div className={styles.parent}>
           <div className={styles.spin1}></div>
 
-          <div className={styles.spin11}>{this.props.data}</div>
+          <div className={styles.spin11}><a href={this.props.data[1]} >{this.props.data[0]}</a></div>
+
+          
         </div>
       </div>
     );
