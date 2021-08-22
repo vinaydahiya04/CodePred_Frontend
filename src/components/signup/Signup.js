@@ -210,8 +210,8 @@ class SignUp extends Component {
                     </Modal.Header>
                     <Modal.Body>
 
-                        <div><span>Email</span><input type='text' value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input></div>
-                        <div><span>Codeforces Handle</span><input type='text' value={this.state.codeforces_handle} onChange={(e) => this.handleInputCodeForcesHandle(e)}></input></div>
+                        <div className={styles.pass_reset_div}><span><b>Email</b></span><input type='text' value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input></div>
+                        <div className={styles.pass_reset_div}><span><b>Codeforces Handle</b></span><input type='text' value={this.state.codeforces_handle} onChange={(e) => this.handleInputCodeForcesHandle(e)}></input></div>
                         
 
 

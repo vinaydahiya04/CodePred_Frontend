@@ -156,9 +156,9 @@ class PasswordReset extends Component {
                     </Modal.Header>
                     <Modal.Body>
 
-                        <div><span>Old Password</span><input type='password' value={this.state.oldP} onChange={(e) => this.handleOldPasswordInput(e)}></input></div>
-                        <div><span>New Password</span><input type='password' value={this.state.newP} onChange={(e) => this.handleNewPasswordInput(e)}></input></div>
-                        <div><span>Confirm Password</span><input type='password' value={this.state.confP} onChange={(e) => this.handleConfPasswordInput(e)}></input></div >
+                        <div className={styles.pass_reset_div}><span><b>Old Password</b></span><input type='password' value={this.state.oldP} onChange={(e) => this.handleOldPasswordInput(e)}></input></div>
+                        <div className={styles.pass_reset_div}><span><b>New Password</b></span><input type='password' value={this.state.newP} onChange={(e) => this.handleNewPasswordInput(e)}></input></div>
+                        <div className={styles.pass_reset_div}><span><b>Confirm Password</b></span><input type='password' value={this.state.confP} onChange={(e) => this.handleConfPasswordInput(e)}></input></div >
 
 
                     </Modal.Body >

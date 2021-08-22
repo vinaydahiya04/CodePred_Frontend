@@ -20,7 +20,7 @@ const About = () => {
             CodePred is a platform that provides you with a recommendation system which considers the average tag wise rating of questions solved by 100 coders rated one level higher than you.
             It uses User-User Collabborative filtering to give you the most suitable questions.
             Do give it a try and tell me how u found the problems that CodePred suggested to you, would love to hear from you.
-
+            <br></br><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzBYSV5aVX0sSQXKtXKAbZvy8XuqZPzkY3osBl1wx2TPo7Zw/viewform?usp=sf_link">Feedback/Suggestion Form</a>
 
         </div>
     )
