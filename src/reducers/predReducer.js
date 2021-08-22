@@ -8,7 +8,7 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         case GETPRED:
-            console.log(action)
+            
             return {
                 ...state,
                 flag: action.payload.flag,

@@ -140,13 +140,14 @@ export const resetPassword = (user, history) => (dispatch) => {
 export const forgotPassword = (user, history) => (dispatch) => {
 
     var myHeaders = new Headers()
-    myHeaders.append('Content-type', 'application-json')
+    myHeaders.append('Content-type', 'application/json')
+    var api_link = data.url + "user/forgot"   
 
-    var api_link = data.url + "user/forgot"
-
-    var raw = JSON.stringify({
+    let raw = JSON.stringify({
         email: user.email
     })
+
+    
 
     var requestOptions = {
         method: "POST",
@@ -155,17 +156,21 @@ export const forgotPassword = (user, history) => (dispatch) => {
         headers: myHeaders
     }
 
+    
+
     fetch(api_link, requestOptions)
         .then(res => res.json())
         .then(res => {
             if (res.flag == 1) {
                 alert(res.message)
+                history.push('/')
             }
             else {
                 alert(res.message)
+                history.push('/login')
             }
 
-            history.push('/login')
+            
 
         })
         .catch(err => { alert(err) })

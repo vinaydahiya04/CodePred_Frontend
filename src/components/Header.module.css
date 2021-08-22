@@ -58,10 +58,10 @@
     color: white;
 }
 
-.options_div:hover{
+/* .options_div:hover{
     font-size: 22px;
     color: yellow;
-}
+} */
 
 .random_div{
     flex:0.5;

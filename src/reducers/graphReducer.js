@@ -62,7 +62,7 @@ export default function (state = initialState, action) {
 
 
 
-                console.log(tags_data)
+                
 
 
 

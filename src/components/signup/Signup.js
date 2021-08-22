@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { registerUser, loginUser } from './../../actions/authActions'
+import { registerUser, loginUser,forgotPassword } from './../../actions/authActions'
 import { connect } from "react-redux";
 import Button from 'react-bootstrap/Button'
 import styles from './signup.module.css'
 import Loader from './../loader/Loader'
+import Modal from 'react-bootstrap/Modal'
 
 
 class SignUp extends Component {
@@ -15,7 +16,8 @@ class SignUp extends Component {
         password: "",
         codeforces_handle: "",
         confirmPassword: "",
-        loader: false
+        loader: false,
+        show: false
     }
 
 
@@ -24,6 +26,13 @@ class SignUp extends Component {
         this.setState({
             ...this.state,
             email: e.target.value
+        })
+    };
+
+    handleInputCodeForcesHandle = (e) => {
+        this.setState({
+            ...this.state,
+            codeforces_handle: e.target.value
         })
     };
 
@@ -122,10 +131,29 @@ class SignUp extends Component {
 
     }
 
+    handleForgotPassword = () =>{
+        this.props.forgotPassword({
+            email:this.state.email,
+            codeforces_handle:this.state.codeforces_handle
+        },this.props.history)
+    }
+
 
 
 
     render() {
+
+        const handleClose = () => {
+            this.setState({
+                show: false
+            })
+        }
+
+        const handleShow = () => {
+            this.setState({
+                show: true
+            })
+        }
         return (
 
             <div className={styles.parent_div}>
@@ -145,8 +173,13 @@ class SignUp extends Component {
                                     <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)} ></input>
                                     <input type="password" placeholder="Password" id="pwd_box" value={this.state.password} onChange={(e) => this.handleInputPassword(e)} ></input>
 
-                                    <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleLogin} className={styles.but}>Submit</Button>
+                                    <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleLogin} className={styles.but}>Login</Button>
                                     {/* </form> */}
+                                    <Button
+                        style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }}
+
+                        onClick={handleShow}
+                    >Forgot Password</Button>
                                 </div>
                                 {/* </div> */}
                             </Tab>
@@ -162,7 +195,7 @@ class SignUp extends Component {
 
                                         <input type="password" placeholder="Confirm Password" value={this.state.confirmPassword} id="cnf_pwd_box" onChange={(e) => this.handleInputConfirmPassword(e)}></input>
 
-                                        <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleSignup} className={styles.but} >Submit</Button>
+                                        <Button style={{ backgroundColor: "#57167E", color: "white", margin: "5%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", borderColor: "#57167E" }} onClick={this.handleSignup} className={styles.but} >Signup</Button>
                                     </form>
                                 </div>
                             </Tab>
@@ -170,6 +203,28 @@ class SignUp extends Component {
                         </Tabs>
 
                     </div>
+
+                    <Modal show={this.state.show} onHide={handleClose} animation={false}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Forgot Password</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+                        <div><span>Email</span><input type='text' value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input></div>
+                        <div><span>Codeforces Handle</span><input type='text' value={this.state.codeforces_handle} onChange={(e) => this.handleInputCodeForcesHandle(e)}></input></div>
+                        
+
+
+                    </Modal.Body >
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={this.handleForgotPassword}>
+                            Reset Password
+                        </Button>
+                    </Modal.Footer>
+                </Modal >
                 </div>
 
             </div>
@@ -188,7 +243,8 @@ const mapStateToProps = (state) => (
 export default connect(mapStateToProps,
     {
         registerUser,
-        loginUser
+        loginUser,
+        forgotPassword
 
     })(SignUp);
 
