@@ -74,10 +74,6 @@ This heavily penalizes the two vectors for having high differences in amplitudes
 
 CodePred uses user-user collaborative filtering to compare
 
-
-# Link to the Deployed Website:
-https://code-pred.netlify.app/profile
-
 # Backend Link:
 "https://codepred.herokuapp.com/"
 
