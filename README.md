@@ -58,7 +58,7 @@ Hence the formula for calculating similarity was slightly varied :
 This heavily penalizes the two vectors for having high differences in amplitudes.
 
 ## Suggesting Problems to the User
-....
+After getting the rating values of which the user should solve questions for the particular tags then I use a pre saved JSON data of questions corresponding to various tags and ratings and then send these questions to the frontend for display.
 
 # Tech Stack
 The following libraries/ frameworks were used for the frontend developement of this website:
