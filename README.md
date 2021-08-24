@@ -61,20 +61,30 @@ This heavily penalizes the two vectors for having high differences in amplitudes
 ....
 
 # Tech Stack
-....
+The following libraries/ frameworks were used for the frontend developement of this website:
+* React
+* MongoDB
+* ExpressJS
+* NodeJS
+* CSS
+* Redux
 
 # Features and their implementation
-.....
-
-# Installation
-......
+### The following packages were used for the given features
+* Authentication : bcryptjs, jsonwebtoken,
+* Sending Emails for reset password: nodemailer and mailgen
+* User Profile Graphs: React Chartjs2
+* Background: Particlejs
 
 
 # Future work
 
-CodePred uses user-user collaborative filtering to compare
+* Increase the number of features in the feature vector
+* Add multiple tags in feature vector as well for eg. "graphs-dp"
+* Improve the frontend 
+* Extend the algorithm to users ranked above master as well
 
-# Backend Link:
+# Hosted Backend Link:
 "https://codepred.herokuapp.com/"
 
 # To check all the recommended questions for each user:
