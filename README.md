@@ -37,14 +37,14 @@ The feature vector was a 9*1 vector with the following Codeforces problem catego
 
 ### Each value in the feature vector represents the average rating of problems succesfully submitted on Codeforces by the user for that corresponding tag
 #### For example:
-![Picture 1](/assets/img1 "Feature Vector")
+![Picture 1](/assets/img1.png "Feature Vector")
 
 PS. I do plan to add more features later on
 ## Observation
 A key observation to make over here is that normal user-user collaborative filtering using cosine similarity will give wrong results because the theta is not the accurate representation of similarity between two coders. The following examples explain the observation
 
-![Picture 2](/assets/img2 "MarineGEO logo")
-![Picture 3](/assets/img3 "MarineGEO logo")
+![Picture 2](/assets/img2.png "MarineGEO logo")
+![Picture 3](/assets/img3.png "MarineGEO logo")
 
 #### If we use normal cosine similarity then it will suggest that vector v1 is more similar to vector v3 than vector v2 and hence the user 1 should solve questions rated similar to those solved by user 3 which here is wrong as even though the theta is 0 or the similarity is 1 but it will be very difficult for user 1 to solve such high rated questions directly considering his own level whereas even though the similarity between user 2 and user 1 is less than between user 1 and user 3 still it will be easier and beneficial for user 1 to solve questions rated similar to those solved by user 2.
 
@@ -53,7 +53,7 @@ A key observation to make over here is that normal user-user collaborative filte
 To overcome the above discussed problem I try to penalise the two vectors while calculating similarity heavily if there is a a large difference between their amplitudes so as to avoid the above problems.
 Hence the formula for calculating similarity was slightly varied :
 
-![Picture 4](/assets/formula "MarineGEO logo")
+![Picture 4](/assets/formula.png "MarineGEO logo")
 
 This heavily penalizes 
 
