@@ -105,7 +105,9 @@ class SignUp extends Component {
             // var cap2 = //;
 
             // var cap = cap1 | cap2
-            if (this.state.password.match(cap) && this.state.password.match(num)) {
+
+            // this.state.password.match(cap) && this.state.password.match(num)
+            if (1) {
                 
 
                 this.props.registerUser({
@@ -186,6 +188,7 @@ class SignUp extends Component {
 
                             <Tab eventKey="signup" title="Signup">
                                 <div className={styles.form}>
+                                    
                                     <form style={{ justifyContent: "center" }}>
                                         <input type="email" placeholder="Email" id="email_box" value={this.state.email} onChange={(e) => this.handleInputEmail(e)}></input>
 

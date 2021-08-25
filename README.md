@@ -6,8 +6,8 @@ CodePred suggests you the kind of problems which will be helpful in improving yo
 The website is hosted at https://code-pred.netlify.app/
 You are required to signup using your email id and Codeforces handle to access the recommendation system.
 Incase you are too lazy to make an account and just want to check out the features you can login using the following credentials:
-Email: 
-Password: 
+Email: sample_test@gmail.com
+Password: Sample#1
 
 # Backend Code
 The backend code for CodePred is available at  https://github.com/vinaydahiya04/codepred-backend
@@ -55,7 +55,7 @@ Hence the formula for calculating similarity was slightly varied :
 
 ![Picture 4](/assets/formula.png "Changed Formula")
 
-This heavily penalizes the two vectors for having high differences in amplitudes.
+This heavily penalizes the similarit score of two vectors for having high differences in amplitudes.
 
 ## Suggesting Problems to the User
 After getting the rating values of which the user should solve problems for the particular tags I used a pre saved JSON data of problems corresponding to various tags and ratings and then sent those problems to the frontend for displaying to the user.
