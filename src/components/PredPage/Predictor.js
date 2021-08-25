@@ -44,16 +44,24 @@ class Predictor extends Component {
                 );
             case 4:
                 for (let i = 0; i < this.props.pred.data.length; i++) {
-                    for (let j = 0; (j < this.props.pred.data[i].length) & (j < 1); j++) {
+                    for (let j = 0; (j < this.props.pred.data[i].length) & (j < 2); j++) {
                         items.push(this.props.pred.data[i][j]);
                     }
                 }
 
+                
+
                 items = [...new Set(items)];
                 var item = [];
+                let item_occurence = {};
+                for (let i = 0; i < items.length; i++){
+                    if(!item_occurence[items[i][0]]){
+                        item.push(<Circle data={items[i]} />);
+                        item_occurence[items[i][0]] = 1;
+                    }
+                }
 
-                for (let i = 0; i < items.length; i++)
-                    item.push(<Circle data={items[i]} />);
+                    
                 return (
                     <div>
                         <h1>Recommended Problems</h1>

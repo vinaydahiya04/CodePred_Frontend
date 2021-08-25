@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 class Circle extends Component {
   render() {
-    console.log(this.props.data);
+    
     return (
       <div>
         <div className={styles.parent}>
